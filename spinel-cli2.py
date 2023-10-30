@@ -788,12 +788,13 @@ class SpinelCliCmd(Cmd, SpinelCodec):
                                 print("No CoAP payload")
                             else:
                                 print("Raw CoAP payload: {}".format(list(p.payload)))
+                                var = list.(p.payload)
                                 client = paho.mqtt.client.Client(client_id="python", clean_session=False)
                                 client.tls_set()
                                 client.on_connect = on_connect
                                 client.username_pw_set(DATACAKE_TOKEN, DATACAKE_TOKEN)
                                 client.connect("mqtt.datacake.co", 8883, 60)
-                                client.publish("dtck-pub/gateway-1/f0965f63-44ea-4b87-a2fc-469c45841823/LITROS",list(p.payload))
+                                client.publish("dtck-pub/gateway-1/f0965f63-44ea-4b87-a2fc-469c45841823/LITROS",var)
                                 client.loop_start()
                                 client.loop_stop()
                     else:
