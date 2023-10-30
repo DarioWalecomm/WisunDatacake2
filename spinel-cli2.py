@@ -788,7 +788,10 @@ class SpinelCliCmd(Cmd, SpinelCodec):
                                 print("No CoAP payload")
                             else:
                                 print("Raw CoAP payload: {}".format(list(p.payload)))
-                                var = p.payload
+                                var = list.(p.payload)
+                                print(var)
+                                uplink = var[1: -1]
+                                print(uplink)
                                 client = paho.mqtt.client.Client(client_id="python", clean_session=False)
                                 client.tls_set()
                                 client.on_connect = on_connect
