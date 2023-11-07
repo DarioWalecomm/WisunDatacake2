@@ -7,8 +7,8 @@ Created on Fri Nov  3 12:18:24 2023
 import os
 import time
 UARTSENT = "COM9" # configuracion del puerto al que se hace referencia 
-
-os.system("python spinel-cli.py -u "+UARTSENT)
+#C:\Users\Dario\Downloads\PYSPINELWatterMeter1.0\
+os.system("python spinelcli.py -u "+UARTSENT)
 time.sleep(30)
 os.system("Network")
 
